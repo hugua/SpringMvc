@@ -5,6 +5,7 @@ import com.cvte.chen.service.UsertestService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +25,9 @@ public class UserController {
     UsertestService usertestService;
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @ResponseBody
     public ModelAndView loginHandler(  Usertest usertest, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println(usertest);
         if(usertestService.selectByExample(usertest)){
             ModelAndView view = new ModelAndView("user/index");
             return view;
@@ -35,12 +38,8 @@ public class UserController {
         }
     }
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public ModelAndView registerHandler(String name,String password,HttpServletRequest request){
-        Usertest usertest = new Usertest();
-        usertest.setName(name);
-        usertest.setPassword(password);
-        String dateStr = request.getParameter("birthday");
-        usertest.setBirthday(dateStr);
+//    public ModelAndView registerHandler(String name,String password,HttpServletRequest request){
+    public ModelAndView registerHandler(Usertest usertest,HttpServletRequest request){
         usertestService.insert(usertest);
         ModelAndView view = new ModelAndView("user/index");
         return view;

@@ -1,6 +1,5 @@
 package com.cvte.chen.entity;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Usertest {
@@ -41,17 +40,17 @@ public class Usertest {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
-    public void setBirthday(String str) {
-        String datePattern = "yyyy-mm-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
-        java.util.Date date = null;
-        try {
-            date = simpleDateFormat.parse(str);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        this.birthday = new java.sql.Date(date.getTime());
-    }
+//    public void setBirthday(String str) {
+//        String datePattern = "yyyy-mm-dd";
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
+//        java.util.Date date = null;
+//        try {
+//            date = simpleDateFormat.parse(str);
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//        this.birthday = new java.sql.Date(date.getTime());
+//    }
 
     public Usertest() {
     }

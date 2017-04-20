@@ -14,4 +14,5 @@ public class JspController {
     public String jspHandler(@PathVariable String jspName){
         return jspName;
     }
+
 }
