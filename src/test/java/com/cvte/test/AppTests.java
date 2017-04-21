@@ -3,25 +3,45 @@ package com.cvte.test;
 import com.cvte.chen.dao.UsertestMapper;
 import com.cvte.chen.entity.Usertest;
 import com.cvte.chen.service.UsertestService;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring-mybatis.xml")
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring-*.xml")
+@WebAppConfiguration
 public class AppTests {
+
+    private MockMvc mockMvc;
     @Resource
     UsertestMapper usertestMapper;
 
+    @Resource
+    UsertestService usertestService;
+
+    @Resource
+    private WebApplicationContext webApplicationContext;
+    @Before
+    public void setUp(){
+        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+    }
     @Test
     public void simple() throws Exception {
        System.out.println("test");
     }
+
     @Test
     public  void ServiceTest(){
         Usertest test = new Usertest();
@@ -60,6 +80,21 @@ public class AppTests {
         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
         java.util.Date date2 = new java.util.Date(date.getTime());
         System.out.println(simpleDateFormat.format(date2));
+
+    }
+
+    @Test
+    public void usertestServiceTest(){
+        Usertest test = new Usertest();
+        test.setName("chen");
+        test.setPassword("chen");
+        usertestService.selectByExample(test);
+    }
+
+    @Test
+    public void testMockmvc() throws  Exception{
+        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/get").accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).andReturn();
+        System.out.println(mvcResult.getResponse().getContentAsString());
 
     }
 }

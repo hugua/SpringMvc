@@ -24,8 +24,15 @@
                 </property>
         </bean>
         </mvc:message-converters>
-
     </mvc:annotation-driven>
+
+    <!--国际化-->
+    <bean id="chenSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="chen"></property>
+    </bean>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+    </mvc:interceptors>
     <!-- 格式化 -->
     <bean id="conversionService"
           class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
@@ -35,7 +42,6 @@
             </list>
         </property>
     </bean>
-
 
     <!--静态文件映射-->
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
