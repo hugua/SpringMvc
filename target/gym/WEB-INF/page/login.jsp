@@ -11,12 +11,13 @@
 
 <body>
 <br> <br> <br>
-    <form id="defaultForm" method="post"  action="/login">
+    <form id="defaultForm" >
 
         用户名: <input type="text" name="name" id="name" placeholder="请输入用户名"  /><br><br>
         密  码: <input type="password" name="password" id="password"  placeholder="请输入密码"  /><br><br>
         ${msg}<br>
-        <button type="submit"  id="signup" name="signup" value="Sign up">登 录</button><a href="/register">注册</a>
+        <button type="button"  id="signup" name="signup" >登 录</button><a href="/register">注册</a><br><br>
+        <span id="msg"></span>
     </form>
 </div>
 

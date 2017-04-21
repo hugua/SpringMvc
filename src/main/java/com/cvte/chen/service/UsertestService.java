@@ -5,6 +5,7 @@ import com.cvte.chen.entity.Usertest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by chen on 2017/4/16.
@@ -23,5 +24,9 @@ public class UsertestService {
 
     public  int insert(Usertest record){
         return usertestMapper.insert(record);
+    }
+
+    public List<Usertest> selectAll( ){
+        return usertestMapper.selectAll();
     }
 }

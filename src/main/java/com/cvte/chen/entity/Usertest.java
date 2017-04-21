@@ -1,8 +1,9 @@
 package com.cvte.chen.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Usertest {
+public class Usertest implements Serializable{
     private Integer id;
     private String name;
     private String password;

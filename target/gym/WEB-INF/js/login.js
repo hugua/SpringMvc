@@ -1,17 +1,20 @@
 
 $("#signup").click(function () {
-    console.log(1);
     var data={
         name:$("#name").val(),
         password:$("#password").val(),
     };
     $.ajax({
-        url:'/login',
+        url:'/user/login',
         data:data,
-        async:false,
         dataType:'json',
         type:'POST',
-        success:function(data){
+        complete:function(data){
+            if(data.responseText=="success"){
+                window.location.href = "/user/index"
+            }else{
+                $("#msg").text("用户名或者密码错误");
+            }
         }
     });
 });

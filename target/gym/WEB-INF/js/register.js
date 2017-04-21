@@ -6,12 +6,13 @@ $("#signup").click(function () {
         birthday:$("#birthday").val()
     };
     $.ajax({
-        url:'/register',
+        url:'/user/register',
         data:data,
         async:false,
         dataType:'json',
         type:'POST',
-        success:function(data){
+        complete:function(data){
+            window.location.href = "/user/index"
         }
     });
 });

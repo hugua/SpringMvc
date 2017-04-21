@@ -18,4 +18,6 @@ public interface UsertestMapper {
     int updateByPrimaryKey(Usertest record);
 
     List<Usertest> selectByExample(Usertest example);
+
+    List<Usertest> selectAll( );
 }

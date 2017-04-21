@@ -85,4 +85,9 @@
     from usertest
     WHERE name= #{name,jdbcType=VARCHAR} AND password = #{password,jdbcType=VARCHAR} 
   </select>
+
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select *
+    from usertest
+  </select>
 </mapper>

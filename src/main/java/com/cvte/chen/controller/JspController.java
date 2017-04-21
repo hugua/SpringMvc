@@ -10,9 +10,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class JspController {
+    @RequestMapping(method = RequestMethod.GET,value = "/")
+    public String indexHandler(){
+        return "login";
+    }
+
     @RequestMapping(method = RequestMethod.GET,value = "/{jspName}")
     public String jspHandler(@PathVariable String jspName){
         return jspName;
+    }
+
+    @RequestMapping(method = RequestMethod.GET,value = "/user/{jspName}")
+    public String userHandler(@PathVariable String jspName){
+        return "/user/"+jspName;
     }
 
 }
