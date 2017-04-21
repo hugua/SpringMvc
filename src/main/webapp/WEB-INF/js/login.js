@@ -10,7 +10,8 @@ $("#signup").click(function () {
         dataType:'json',
         type:'POST',
         complete:function(data){
-            if(data.responseText=="success"){
+            console.log(data);
+            if(data.responseText==1){
                 window.location.href = "/user/index"
             }else{
                 $("#msg").text("用户名或者密码错误");

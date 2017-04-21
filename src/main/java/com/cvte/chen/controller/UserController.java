@@ -27,9 +27,9 @@ public class UserController {
     @ResponseBody
     public Object loginHandler( Usertest usertest, HttpServletRequest request, HttpServletResponse response) throws Exception {
         if(usertestService.selectByExample(usertest)){
-           return "success";
+           return 1;
         }else{
-           return "fail";
+           return 2;
         }
     }
     @RequestMapping(value = "/register",method = RequestMethod.POST)

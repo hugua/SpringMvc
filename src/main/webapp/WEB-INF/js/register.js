@@ -1,5 +1,4 @@
 $("#signup").click(function () {
-    console.log(1);
     var data={
         name:$("#name").val(),
         password:$("#password").val(),
