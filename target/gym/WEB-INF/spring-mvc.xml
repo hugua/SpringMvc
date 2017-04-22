@@ -24,8 +24,8 @@
                 </property>
         </bean>
         </mvc:message-converters>
-
     </mvc:annotation-driven>
+
     <!-- 格式化 -->
     <bean id="conversionService"
           class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
@@ -36,9 +36,7 @@
         </property>
     </bean>
 
-
     <!--静态文件映射-->
-    <mvc:default-servlet-handler></mvc:default-servlet-handler>
     <mvc:resources mapping="/css/**" location="/WEB-INF/css/**"></mvc:resources>
     <mvc:resources mapping="/js/**" location="/WEB-INF/js/**"></mvc:resources>
     <mvc:resources mapping="/img/**" location="/WEB-INF/img/**"></mvc:resources>

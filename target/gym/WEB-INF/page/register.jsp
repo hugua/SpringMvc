@@ -19,7 +19,7 @@
         用户名: <input type="text" name="name" id="name"  placeholder="请输入用户名"  /><br><br>
         密 码: <input type="password" name="password" id="password" placeholder="请输入密码"  /><br><br>
         生 日: <input type="text" name="birthday" id="birthday"  placeholder="请输入生日"  /><br><br>
-        <button type="submit"  name="register" value="register">注册</button>
+        <button type="button"  id="register" name="register" >注册</button>
     </form>
 </div>
     <script src="../js/jquery.js"></script>

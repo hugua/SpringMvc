@@ -1,9 +1,10 @@
-$("#signup").click(function () {
+$("#register").click(function () {
     var data={
         name:$("#name").val(),
         password:$("#password").val(),
         birthday:$("#birthday").val()
     };
+    console.log(data);
     $.ajax({
         url:'/user/register',
         data:data,
