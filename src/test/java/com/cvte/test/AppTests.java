@@ -3,6 +3,7 @@ package com.cvte.test;
 import com.cvte.chen.dao.UsertestMapper;
 import com.cvte.chen.entity.Usertest;
 import com.cvte.chen.service.UsertestService;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +25,7 @@ import java.text.SimpleDateFormat;
 @WebAppConfiguration
 public class AppTests {
 
+    private Logger logger = Logger.getLogger(AppTests.class);
     private MockMvc mockMvc;
     @Resource
     UsertestMapper usertestMapper;
