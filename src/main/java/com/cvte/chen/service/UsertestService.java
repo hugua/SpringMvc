@@ -3,6 +3,7 @@ package com.cvte.chen.service;
 import com.cvte.chen.dao.UsertestMapper;
 import com.cvte.chen.entity.Usertest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 public class UsertestService {
     @Resource
     UsertestMapper usertestMapper;
+
     public boolean selectByExample(Usertest test){
         if(usertestMapper.selectByExample(test).size() >0)
             return true;
@@ -28,5 +30,16 @@ public class UsertestService {
 
     public List<Usertest> selectAll( ){
         return usertestMapper.selectAll();
+    }
+
+    /**
+     * 注解式事务配置
+     * @param record
+     * @param record2
+     */
+    @Transactional
+    public void testTran(Usertest record,Usertest record2){
+        usertestMapper.insert(record);
+        usertestMapper.insert(record2);
     }
 }

@@ -19,10 +19,12 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring-*.xml")
 @WebAppConfiguration
+
 public class AppTests {
 
     private Logger logger = Logger.getLogger(AppTests.class);
@@ -44,13 +46,6 @@ public class AppTests {
        System.out.println("test");
     }
 
-    @Test
-    public  void ServiceTest(){
-        Usertest test = new Usertest();
-        test.setName("chen");
-        test.setPassword("chen");
-        usertestMapper.selectByExample(test);
-    }
 
     @Test
     public void DateTest() throws  Exception{
@@ -70,7 +65,6 @@ public class AppTests {
         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
         System.out.println(date.toString());
         */
-
         //java.util.date获取当前时间
         /*
         java.util.Date date = new Date();
@@ -98,5 +92,20 @@ public class AppTests {
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/user/get").accept(MediaType.parseMediaType("application/json;charset=UTF-8"))).andReturn();
         System.out.println(mvcResult.getResponse().getContentAsString());
 
+    }
+
+    //事务测试
+    @Test
+    public void testTransaction(){
+        Date d = new java.util.Date();
+        Usertest usertest1 = new Usertest();
+        usertest1.setName("12331");
+        usertest1.setPassword("1111111");
+        usertest1.setBirthday(d);
+        Usertest usertest2 = new Usertest();
+        usertest2.setName("1233");
+        usertest2.setPassword("1111111111111111111111111111111111");
+        usertest2.setBirthday(d);
+        usertestService.testTran(usertest1,usertest2);
     }
 }
