@@ -13,11 +13,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gym" />
+        <module name="SpringMvc" />
         <module name="TaskProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="gym" target="1.6" />
+      <module name="SpringMvc" target="1.6" />
       <module name="springmvcmybatis" target="1.6" />
       <module name="TaskProject" target="1.6" />
     </bytecodeTargetLevel>

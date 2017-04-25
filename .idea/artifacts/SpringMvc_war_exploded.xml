@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="gym:war exploded">
+  <artifact type="exploded-war" name="SpringMvc:war exploded">
     <output-path>$PROJECT_DIR$/target/gym</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="gym" />
+          <element id="module-output" name="SpringMvc" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.1.RELEASE" />
@@ -39,7 +39,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/gym/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="gym/web/Web" />
+      <element id="javaee-facet-resources" facet="SpringMvc/web/Web" />
     </root>
   </artifact>
 </component>
