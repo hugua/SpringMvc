@@ -1,4 +1,9 @@
-# gym
+# springmvc
+
+开发工具 intellij idea maven
+数据库 mysql
+框架 springmvc + mybatis
+【intellij中修改项目的命名，1. 项目右键，refactor->rename  2. filr->project structure -> actifacts 修改名称 3 . 修改文件夹的名称，重新打开项目】
 1. 配置文件
 pom.xml
 web.xml
@@ -68,3 +73,5 @@ log4j.properies
    不要会发生错误：
    java.lang.ExceptionInInitializerError。。。
    java.util.MissingResourceException: Can't find bundle for base name javax.servlet.LocalStrings, locale es_ES。。。
+   
+   7. 事务配置，引入注解事务配置
